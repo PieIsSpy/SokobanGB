@@ -1,5 +1,6 @@
 #include "header.h"
 #include "entity.c"
+#include "player.c"
 
 void main(void) {
     BYTE gameRunning = 1;
@@ -17,7 +18,7 @@ void main(void) {
     DISPLAY_ON;
 
     while (gameRunning) {
-        entityControl(&player);
+        playerControl(&player, boxes, 2);
         performantDelay(20);
     }
 }

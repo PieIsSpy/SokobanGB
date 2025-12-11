@@ -16,6 +16,7 @@ typedef enum {
     BOX
 } entityType;
 
+// define directions
 typedef enum {
     LEFT,
     RIGHT,
