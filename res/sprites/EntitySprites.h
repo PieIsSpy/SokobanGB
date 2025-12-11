@@ -22,13 +22,13 @@
 
 */
 
-#ifndef __entitySprites_h_INCLUDE
-#define __entitySprites_h_INCLUDE
+#ifndef __EntitySprites_h_INCLUDE
+#define __EntitySprites_h_INCLUDE
 
 /* Bank of tiles. */
-#define entitySpritesBank 0
+#define EntitySpritesBank 0
 /* Start of tile array. */
-extern const unsigned char entitySprites[];
+extern const unsigned char EntitySprites[];
 
 #endif
 
