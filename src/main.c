@@ -1,9 +1,20 @@
 #include "header.h"
+#include "tileChecker.c"
 #include "entity.c"
 #include "player.c"
 
+UINT8 isWon(Entity boxes[], UINT8 numBoxes) {
+    UINT8 cout = 0;
+
+    for (UINT8 i = 0; i < numBoxes; i++) {
+        if (isTileGoal(boxes[i].x, boxes[i].y))
+            cout++;
+    }
+
+    return cout == numBoxes;
+}
+
 void main(void) {
-    BYTE gameRunning = 1;
     defineSpriteData();
 
     Entity player = createEntity(PLAYER, 88, 72);
@@ -17,8 +28,9 @@ void main(void) {
     SHOW_SPRITES;
     DISPLAY_ON;
 
-    while (gameRunning) {
+    while (!isWon(boxes, 2)) {
         playerControl(&player, boxes, 2);
         performantDelay(20);
     }
+    printf("======You Win!======");
 }

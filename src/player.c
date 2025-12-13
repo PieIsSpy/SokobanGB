@@ -28,6 +28,9 @@ BYTE canPlayerMove(directions direction, Entity player, Entity boxes[], UINT8 nu
             break;
     }
 
+    if (isTileWall(targetX, targetY))
+        return 0;
+
     adjacentBox = findAdjacentBox(targetX, targetY, boxes, numBoxes);
 
     if (adjacentBox != -1) {
@@ -82,6 +85,9 @@ BYTE canBoxMove(directions direction, Entity targetBox, Entity boxes[], UINT8 nu
             targetY = targetBox.y + 8;
             break;
     }
+
+    if (isTileWall(targetX, targetY))
+        return 0;
 
     adjacentBox = findAdjacentBox(targetX, targetY, boxes, numBoxes);
 
