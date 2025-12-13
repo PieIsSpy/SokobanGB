@@ -11,20 +11,20 @@ BYTE canPlayerMove(directions direction, Entity player, Entity boxes[], UINT8 nu
 
     switch (direction) {
         case LEFT:
-            targetX = player.x - 8;
+            targetX = player.x - tileWidth;
             targetY = player.y;
             break;
         case RIGHT:
-            targetX = player.x + 8;
+            targetX = player.x + tileWidth;
             targetY = player.y;
             break;
         case UP:
             targetX = player.x;
-            targetY = player.y - 8;
+            targetY = player.y - tileHeight;
             break;
         case DOWN:
             targetX = player.x;
-            targetY = player.y + 8;
+            targetY = player.y + tileHeight;
             break;
     }
 
@@ -41,16 +41,16 @@ BYTE canPlayerMove(directions direction, Entity player, Entity boxes[], UINT8 nu
         else {
             switch (direction) {
                 case LEFT:
-                    boxes[adjacentBox].x -= 8;
+                    boxes[adjacentBox].x -= tileWidth;
                     break;
                 case RIGHT:
-                    boxes[adjacentBox].x += 8;
+                    boxes[adjacentBox].x += tileWidth;
                     break;
                 case UP:
-                    boxes[adjacentBox].y -= 8;
+                    boxes[adjacentBox].y -= tileHeight;
                     break;
                 case DOWN:
-                    boxes[adjacentBox].y += 8;
+                    boxes[adjacentBox].y += tileHeight;
                     break;
             }
 
@@ -69,20 +69,20 @@ BYTE canBoxMove(directions direction, Entity targetBox, Entity boxes[], UINT8 nu
 
     switch (direction) {
         case LEFT:
-            targetX = targetBox.x - 8;
+            targetX = targetBox.x - tileWidth;
             targetY = targetBox.y;
             break;
         case RIGHT:
-            targetX = targetBox.x + 8;
+            targetX = targetBox.x + tileWidth;
             targetY = targetBox.y;
             break;
         case UP:
             targetX = targetBox.x;
-            targetY = targetBox.y - 8;
+            targetY = targetBox.y - tileHeight;
             break;
         case DOWN:
             targetX = targetBox.x;
-            targetY = targetBox.y + 8;
+            targetY = targetBox.y + tileHeight;
             break;
     }
 
@@ -110,19 +110,19 @@ void playerControl(Entity* player, Entity boxes[], UINT8 numBoxes) {
     switch (joypad()) {
         case J_LEFT:
             if (canPlayerMove(LEFT, *player, boxes, numBoxes))
-                player->x -= 8;
+                player->x -= tileWidth;
             break;
         case J_RIGHT:
             if (canPlayerMove(RIGHT, *player, boxes, numBoxes))
-                player->x += 8;
+                player->x += tileWidth;
             break;
         case J_UP:
             if (canPlayerMove(UP, *player, boxes, numBoxes))
-                player->y -= 8;
+                player->y -= tileHeight;
             break;
         case J_DOWN:
             if (canPlayerMove(DOWN, *player, boxes, numBoxes))
-                player->y += 8;
+                player->y += tileHeight;
             break;
     }
     moveEntity(player, player->x, player->y);

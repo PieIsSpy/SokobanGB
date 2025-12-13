@@ -1,18 +1,9 @@
 #include "header.h"
+#include "misc.c"
 #include "tileChecker.c"
 #include "entity.c"
 #include "player.c"
-
-UINT8 isWon(Entity boxes[], UINT8 numBoxes) {
-    UINT8 cout = 0;
-
-    for (UINT8 i = 0; i < numBoxes; i++) {
-        if (isTileGoal(boxes[i].x, boxes[i].y))
-            cout++;
-    }
-
-    return cout == numBoxes;
-}
+#include "mapHandler.c"
 
 void main(void) {
     defineSpriteData();
