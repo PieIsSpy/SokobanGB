@@ -1,4 +1,5 @@
 BYTE isTileWall(UINT8 targetX, UINT8 targetY);
+BYTE isTileGoal(UINT8 targetX, UINT8 targetY);
 
 BYTE isTileWall(UINT8 targetX, UINT8 targetY) {
     UINT16 x_index, y_index, tile_index;
